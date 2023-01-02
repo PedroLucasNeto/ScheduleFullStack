@@ -1,0 +1,95 @@
+:root{
+    --grey: rgb(125,130,133);
+    --purple: rgb(125,27,76);
+    --yellow: rgb(231,201,137);
+    --white: #fffafa;
+    --black: rgb(0,0,0);
+    --qualquer-nome: 0,0,255 ;
+}
+
+
+body{
+    /* background-color: var(--grey); */
+    background: rgba(125,130,133, 0.15) ;
+    padding: 0;
+    margin: 0;
+}
+
+li{
+    list-style-type: none;
+}
+
+
+
+::-webkit-scrollbar{
+    width: 10px;
+    color: var(--grey);
+}
+
+
+::-webkit-scrollbar-thumb {
+    background: var(--grey);
+}
+
+
+
+.main-header{
+    border-bottom: 1px solid black;
+    padding: 10px;
+}
+
+.header-div{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+
+.header-button{
+    border: none;
+    background-color: transparent;
+}
+
+.header-button>a{
+    text-decoration: none;
+    color: black;
+}
+
+.main-container{
+    display: flex;
+    flex-direction: row;
+    /* background-color: blue; */
+    height: fit-content;
+    align-items: center;
+}
+
+.nav-list{
+    width: 300px;
+    /* position: relative;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%); */
+
+    font-size: 1.7rem;
+
+    display: flex;
+    flex-direction: column;
+    
+}
+.logo-img{
+    width: 120px;
+}
+
+.calendar-div{
+    /* margin: 0 auto; */
+    padding: 50px;
+    width: 100%;
+    height: 91vh;
+}
+
+
+
+
+
+
+
