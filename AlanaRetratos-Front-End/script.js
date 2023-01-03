@@ -12,4 +12,13 @@ document.addEventListener("DOMContentLoaded", function () {
     initialView: "dayGridMonth",
   });
   calendar.render();
+
+  // calendar.on("dateClick", () => {
+  //   console.log("Clicked on" + info.dateStr);
+  // });
 });
+
+// fetch("http://localhost:8080/user");
+fetch("/user")
+  .then((response) => console.log("Response".response))
+  .catch((error) => console.log(error));

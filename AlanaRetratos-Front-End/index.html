@@ -19,15 +19,45 @@
       </div>
     </header>
     <div class="main-container">
-      <div>
+      <div class="info-display">
+        <button class="btn btn-open">New Appointment</button>
         <ul class="nav-list">
-          <li>Ensaios de Hoje:</li>
-          <li>Agendados no mês:</li>
-          <li>Finalizados:</li>
-          <li>Meta mensal:</li>
+          <li>Today's Photo Shoots: <span id="today">0</span></li>
+          <li>Booked over the month: <span id="booked">0</span> </li>
+          <li>Finished: <span id="delivered"></span> 0</li>
+          <li>Monthly Goal: <span id="goal"></span>10</li>
         </ul>
+       
       </div>
       <div id="calendar" class="calendar-div"></div>
     </div>
+    <!-- MODAL SO WE CAN ADD A NEW APPOINTMENT ON THE CALENDAR -->
+    <div class="overlay hidden"></div>
+    <div class="modal hidden">
+      <div class="flex">
+        <button class="btn-close">⨉</button></div>
+        <form class="appointment-form">
+          <label for="fname">Client's Name:</label>
+          <input type="text" id="name" name="name" placeholder="name of the person">
+          <label for="description">Description:</label>
+          <input type="text" id="description" name="description" placeholder="description of the appointment">
+          <label for="date">Date:</label>
+          <input type="date" id="date" name="date" placeholder="ex: 01/01/2023">
+          <label for="time">Time:</label>
+          <input type="time" id="time" name="time" placeholder="ex: 10:30">
+          <details >
+            <summary>Appointment type</summary>
+            <span>FASHION</span>
+            <span>FEMININE</span>
+            <span>MOTHER</span>
+            <span>CAREER</span>
+            <span>EVENT</span>
+            <span>DEBUTANT</span>
+          </details>
+        </form>
+        <button class="btn">Submit</button>
+    </div>
   </body>
+  <script src="/openModal.js"></script>
 </html>
+
