@@ -5,12 +5,20 @@
     <link rel="stylesheet" href="styles.css" />
     <script src="/node_modules/fullcalendar/index.global.js"></script>
     <script src="/script.js"></script>
+    <script
+      src="https://kit.fontawesome.com/1a3476b34b.js"
+      crossorigin="anonymous"
+    ></script>
     <title>Alana Retratos Agendamentos</title>
   </head>
   <body>
     <header class="main-header">
       <div class="header-div">
-        <img class="logo-img" src="/assets/img/Prancheta 4.png" alt="Logo de alana ferreira retratos"></img>
+        <img
+          class="logo-img"
+          src="/assets/img/Prancheta 4.png"
+          alt="Logo de alana ferreira retratos"
+        />
         <button class="header-button">
           <a href="https://wa.me/message/2KOMKHPRJKFMJ1" target="_blank"
             >WhatsApp</a
@@ -21,13 +29,20 @@
     <div class="main-container">
       <div class="info-display">
         <button class="btn btn-open">New Appointment</button>
+        <div>
+          <button class="btn btn-open">
+            <i class="fa-sharp fa-solid fa-calendar-days"></i>
+          </button>
+          <button class="btn btn-open">
+            <i class="fa-sharp fa-solid fa-list"></i>
+          </button>
+        </div>
         <ul class="nav-list">
           <li>Today's Photo Shoots: <span id="today">0</span></li>
-          <li>Booked over the month: <span id="booked">0</span> </li>
+          <li>Booked over the month: <span id="booked">0</span></li>
           <li>Finished: <span id="delivered"></span> 0</li>
           <li>Monthly Goal: <span id="goal"></span>10</li>
         </ul>
-       
       </div>
       <div id="calendar" class="calendar-div"></div>
     </div>
@@ -35,29 +50,48 @@
     <div class="overlay hidden"></div>
     <div class="modal hidden">
       <div class="flex">
-        <button class="btn-close">⨉</button></div>
-        <form class="appointment-form">
-          <label for="fname">Client's Name:</label>
-          <input type="text" id="name" name="name" placeholder="name of the person">
-          <label for="description">Description:</label>
-          <input type="text" id="description" name="description" placeholder="description of the appointment">
-          <label for="date">Date:</label>
-          <input type="date" id="date" name="date" placeholder="ex: 01/01/2023">
-          <label for="time">Time:</label>
-          <input type="time" id="time" name="time" placeholder="ex: 10:30">
-          <details >
-            <summary>Appointment type</summary>
-            <span>FASHION</span>
-            <span>FEMININE</span>
-            <span>MOTHER</span>
-            <span>CAREER</span>
-            <span>EVENT</span>
-            <span>DEBUTANT</span>
-          </details>
-        </form>
-        <button class="btn">Submit</button>
+        <button class="btn-close">⨉</button>
+      </div>
+      <form class="appointment-form">
+        <label for="clientName">Client's Name:</label>
+        <input
+          type="text"
+          id="clientName"
+          name="clientName"
+          placeholder="name of the person"
+          required="true"
+        />
+        <label for="description">Description:</label>
+        <input
+          type="text"
+          id="description"
+          name="description"
+          placeholder="description of the appointment"
+          required="true"
+        />
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" required="true" />
+        <label for="time">Time:</label>
+        <input type="time" id="time" name="time" required="true" />
+        <label for="photoShootPricing">Photo Shoot Pricing</label>
+        <select name="photoShootPricing">
+          <option>SILVER</option>
+          <option>GOLD</option>
+          <option>DIAMOND</option>
+        </select>
+        <label for="photoShootType">Photo Shoot Type</label>
+        <select name="photoShootType">
+          <option>FEMININE</option>
+          <option>FASHION</option>
+          <option>MOM</option>
+          <option>CAREER</option>
+          <option>EVENT</option>
+          <option>DEBUTANT</option>
+        </select>
+        <button class="btn" type="submit" onclick="">Submit</button>
+      </form>
     </div>
   </body>
-  <script src="/openModal.js"></script>
+  <script src="/modalFunctions.js"></script>
+  <script src="formFunctions.js"></script>
 </html>
-

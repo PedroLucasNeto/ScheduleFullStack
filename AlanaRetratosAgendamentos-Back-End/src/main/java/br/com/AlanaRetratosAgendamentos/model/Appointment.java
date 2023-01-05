@@ -1,9 +1,10 @@
 package br.com.AlanaRetratosAgendamentos.model;
 
-
 import java.util.Date;
 
-import br.com.AlanaRetratosAgendamentos.enums.AppointmentType;
+import br.com.AlanaRetratosAgendamentos.enums.PhotoShootPricing;
+import br.com.AlanaRetratosAgendamentos.enums.PhotoShootStatus;
+import br.com.AlanaRetratosAgendamentos.enums.PhotoShootType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -22,20 +23,22 @@ public class Appointment {
 	private Long id;
 	
 	@Column
+	private String clientName;
+	
+	@Column
 	private String description;
 	
 	@Column
 	private Date date;
 	
 	@Column
-	private AppointmentType appointmentType;
+	private PhotoShootType photoShootType;
 	
 	@Column
-	private String clientName;
+	private PhotoShootPricing photoShootPricing;
 	
 	@Column
-	private AppointmentStatus appointmentStatus;
-	
+	private PhotoShootStatus photoShootStatus;
 	
 }
 

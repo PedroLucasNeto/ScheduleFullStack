@@ -151,6 +151,12 @@ button {
   font-weight: 600;
 }
 
+select{
+  justify-content: fit-content;
+  padding: 7px;
+  margin-bottom: 10px;
+}
+
 .btn {
   display: inline-block;
   padding: 0.8rem 1.4rem;

@@ -18,7 +18,4 @@ document.addEventListener("DOMContentLoaded", function () {
   // });
 });
 
-// fetch("http://localhost:8080/user");
-fetch("34.122.183.75/user")
-  .then((response) => console.log("Response".response))
-  .catch((error) => console.log(error));
+// fetch("http://localhost:8080/user").then((res) => console.log(res));
