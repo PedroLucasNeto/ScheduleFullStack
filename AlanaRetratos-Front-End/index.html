@@ -36,10 +36,10 @@
               <span class="btn-specific">New</span></i
             >
           </button>
-          <button id="hide-calendar" class="btn btn-hide-calendar">
+          <button id="hide-calendar" onclick="showList()" class="btn">
             <i class="fa-solid fa-calendar"></i>
           </button>
-          <button id="hide-list" class="btn btn-hide-list">
+          <button id="hide-list" onclick="showCalendar()" class="btn">
             <i class="fa-sharp fa-solid fa-list"></i>
           </button>
           <button id="btn-refresh" class="btn">
@@ -92,13 +92,14 @@
           required="true"
         />
         <label for="description">Description:</label>
-        <input
+        <textarea
+          rows="10"
+          cols="50"
           type="text"
           id="description"
           name="description"
           placeholder="description of the appointment"
-          required="true"
-        />
+        ></textarea>
         <label for="date">Date:</label>
         <input type="date" id="date" name="date" required="true" />
         <label for="time">Time:</label>

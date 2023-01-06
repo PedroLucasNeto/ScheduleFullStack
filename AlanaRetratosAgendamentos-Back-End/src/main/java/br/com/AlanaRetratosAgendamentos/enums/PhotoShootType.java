@@ -2,6 +2,6 @@ package br.com.AlanaRetratosAgendamentos.enums;
 
 public enum PhotoShootType {
 	
-	FASHION, FEMININE, MOTHER, CAREER, EVENT, DEBUTANT;
+	FEMININE, FASHION, MOM, CAREER, EVENT, DEBUTANT;
 
 }

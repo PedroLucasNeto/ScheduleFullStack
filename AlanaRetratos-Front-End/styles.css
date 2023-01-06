@@ -30,6 +30,10 @@ td{
   padding: 10px;
 }
 
+textarea{
+  height: 100px;
+  margin-bottom: 10px;
+}
 
 label {
   margin-bottom: 10px;
@@ -136,7 +140,7 @@ li {
 
 
 .disabled{ 
-  background-color: rgba(0, 0, 0, 0.4) ;
+  background-color: rgba(128, 128, 128, 0.5) ;
 }
 
 /* Table */
@@ -158,15 +162,8 @@ li {
 button {
   cursor: pointer;
   border: none;
+  background-color: black;
   font-weight: 600;
-}
-
-.btn-hide-calendar{
-  
-}
-
-.btn-hide-list{
-  
 }
 
 .button-container{
@@ -197,7 +194,7 @@ button {
   display: inline-block;
   padding: 0.6rem 1.2rem;
   font-weight: 600;
-  background-color: black;
+  /* background-color: black; */
   color: white;
   border-radius: 5px;
   text-align: center;
@@ -229,7 +226,7 @@ button {
   justify-content: center;
 
   gap: 0.4rem;
-  width: 450px;
+  width: 600px;
   padding: 1.3rem;
   min-height: 250px;
 
@@ -292,3 +289,10 @@ select{
 }
 
 /* Modal End */
+
+
+/* Modal confirmation */
+
+.modal-confirm{
+
+}

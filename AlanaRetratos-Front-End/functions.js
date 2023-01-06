@@ -14,7 +14,6 @@ form.addEventListener("submit", function (event) {
     objTime[0] - 3,
     objTime[1]
   );
-
   const newObj = {
     clientName: obj.clientName,
     description: obj.description,
@@ -22,11 +21,8 @@ form.addEventListener("submit", function (event) {
     photoShootType: obj.photoShootType,
     photoShootPricing: obj.photoShootPricing,
   };
-
   console.log(newObj);
-
   const jsonFormat = JSON.stringify(newObj);
-
   saveInDb(jsonFormat);
 });
 
@@ -81,14 +77,14 @@ async function listAppointments() {
 //Executes the function above, iniciating the list;
 listAppointments();
 
-// Edit and Remove appointments functions !!
-
+// Edit and Remove appointments functions using ID !!
 const removeAppointment = function (appointmentId) {
   const tableRow = document.getElementById(appointmentId);
   if (tableRow) {
     fetch(`${url}/appointment/${appointmentId}`, { method: "DELETE" }).then(
       () => alert("Success")
     );
+
     tableRow.remove();
   }
 };
@@ -122,7 +118,7 @@ const showList = function () {
     selectListIcon.classList.add("disabled"),
     selectCalendarIcon.classList.remove("disabled");
 };
-selectCalendarIcon.addEventListener("click", showCalendar);
-selectListIcon.addEventListener("click", showList);
+// selectCalendarIcon.addEventListener("click", showCalendar);
+// selectListIcon.addEventListener("click", showList);
 
 //  END
