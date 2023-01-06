@@ -9,6 +9,8 @@
       src="https://kit.fontawesome.com/1a3476b34b.js"
       crossorigin="anonymous"
     ></script>
+
+    <link rel="shortcut icon" href="assets/img/fav.png" />
     <title>Alana Retratos Agendamentos</title>
   </head>
   <body>
@@ -28,12 +30,12 @@
     </header>
     <div class="main-container">
       <div class="info-display">
-        <button class="btn btn-open">New Appointment</button>
-        <div>
-          <button class="btn btn-open">
+        <div class="button-container">
+          <button class="btn btn-open">New Appointment</button>
+          <button class="btn btn-hide-calendar" onclick="showList()">
             <i class="fa-sharp fa-solid fa-calendar-days"></i>
           </button>
-          <button class="btn btn-open">
+          <button class="btn btn-hide-list" onclick="showCalendar()">
             <i class="fa-sharp fa-solid fa-list"></i>
           </button>
         </div>
@@ -44,7 +46,24 @@
           <li>Monthly Goal: <span id="goal"></span>10</li>
         </ul>
       </div>
-      <div id="calendar" class="calendar-div"></div>
+
+      <table id="appointment-table" class="appointment-list hidden">
+        <thead class="thead">
+          <tr>
+            <th>#</th>
+            <th>Client Name</th>
+            <th>Description</th>
+            <th>Date</th>
+            <th>PS Type</th>
+            <th>PS Pricing</th>
+            <th>Edit</th>
+            <th>Remove</th>
+          </tr>
+        </thead>
+        <tbody id="appointments"></tbody>
+      </table>
+
+      <div id="calendar" class="calendar-div hidden"></div>
     </div>
     <!-- MODAL SO WE CAN ADD A NEW APPOINTMENT ON THE CALENDAR -->
     <div class="overlay hidden"></div>

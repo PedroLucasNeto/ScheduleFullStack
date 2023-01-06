@@ -49,11 +49,57 @@ function saveInDb(jsonFormat) {
     });
 }
 
-const appointments = getAppointments();
-
-async function getAppointments() {
+async function listAppointments() {
   const data = await fetch(`${url}/appointment`, {
     method: "get",
   });
-  return data;
+  const allAppointments = await data.json();
+
+  allAppointments.map(function (item, index) {
+    const tableBody = document.getElementById("appointments");
+    const element = document.createElement("tr");
+    element.classList.add("row");
+    element.innerHTML = `
+        <td>${item.id}</td>
+        <td>${item.clientName}</td>
+        <td>${item.description}</td>
+        <td>${item.date}</td>
+        <td>${item.photoShootType}</td>
+        <td>${item.photoShootPricing}</td>
+        <td><i class="fa-solid fa-pen-to-square"></i></td>
+        <td><i class="fa-solid fa-trash"></i></td>
+      `;
+
+    // document.body.appendChild(tableBody);
+    // console.log(item.clientName, index);
+
+    tableBody.appendChild(element);
+  });
 }
+
+//Executes the function above
+listAppointments();
+
+const calendar = document.getElementById("calendar");
+const table = document.getElementById("appointment-table");
+const selectCalendarIcon = document.querySelector(".btn-hide-list");
+const selectListIcon = document.querySelector(".btn-hide-calendar");
+
+const showCalendar = function () {
+  table.classList.remove("hidden"),
+    selectCalendarIcon.classList.add("disabled");
+  selectListIcon.classList.remove("disabled");
+  document.getElementById("calendar").innerHTML = "";
+};
+
+const showList = function () {
+  table.classList.add("hidden");
+  createCalendar();
+  selectListIcon.classList.add("disabled");
+  selectCalendarIcon.classList.remove("disabled");
+
+  // document.getElementById("calendar").outerHTML = "";
+};
+
+selectCalendarIcon.addEventListener("click", showCalendar);
+selectListIcon.addEventListener("click", showList);

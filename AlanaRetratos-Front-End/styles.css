@@ -6,6 +6,8 @@
   --black: rgb(0, 0, 0);
 }
 
+
+
 body {
   /* background-color: var(--grey); */
   background: rgba(125, 130, 133, 0.2);
@@ -13,6 +15,14 @@ body {
   margin: 0;
   position: relative;
   box-sizing: border-box;
+  width: 100vw;
+  height: 100vh;
+}
+
+td{
+  border: 1px solid black;
+  border-radius: 3px;
+
 }
 
 label {
@@ -40,7 +50,7 @@ li {
 .info-display {
   box-sizing: border-box;
   padding: 50px;
-  width: 100%;
+  width: 90%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -99,7 +109,7 @@ li {
 .calendar-div {
   /* margin: 0 auto; */
   padding: 50px;
-  width: 100%;
+  width: 90%;
   height: 91vh;
 }
 
@@ -166,6 +176,7 @@ select{
   border-radius: 5px;
   text-align: center;
   font-size: 1em;
+  margin: 0 20px;
 }
 
 .btn-open {
@@ -206,3 +217,39 @@ select{
   display: flex;
   flex-direction: column;
 }
+
+.appointment-list{
+  width: 80%;
+  background-color: aliceblue;
+  padding: 10px;
+  border: 2px solid rgb(0, 0, 0);
+  text-align: center;
+  font-family: 'Times New Roman', Times, serif, sans-serif;
+
+}
+
+.disabled{ 
+  background-color: rgba(0, 0, 0, 0.4) ;
+}
+
+.btn-hide-calendar{
+  
+}
+
+.btn-hide-list{
+  
+}
+
+.button-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 500px;
+}
+
+.thead{
+  margin-bottom: 20px;
+}
+
+
+
