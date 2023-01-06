@@ -22,8 +22,9 @@ body {
 td{
   border: 1px solid black;
   border-radius: 3px;
-
+  padding: 10px;
 }
+
 
 label {
   margin-bottom: 5px;
@@ -221,7 +222,7 @@ select{
 .appointment-list{
   width: 80%;
   background-color: aliceblue;
-  padding: 10px;
+  padding: 20px;
   border: 2px solid rgb(0, 0, 0);
   text-align: center;
   font-family: 'Times New Roman', Times, serif, sans-serif;
@@ -245,10 +246,6 @@ select{
   flex-direction: row;
   justify-content: space-evenly;
   width: 500px;
-}
-
-.thead{
-  margin-bottom: 20px;
 }
 
 

@@ -38,12 +38,15 @@
           <button class="btn btn-hide-list" onclick="showCalendar()">
             <i class="fa-sharp fa-solid fa-list"></i>
           </button>
+          <button id="btn-refresh" class="btn">
+            <i class="fa-solid fa-rotate-right"></i>
+          </button>
         </div>
         <ul class="nav-list">
-          <li>Today's Photo Shoots: <span id="today">0</span></li>
+          <li>Today's Photo Shoots: <span id="todays-ps">0</span></li>
           <li>Booked over the month: <span id="booked">0</span></li>
-          <li>Finished: <span id="delivered"></span> 0</li>
-          <li>Monthly Goal: <span id="goal"></span>10</li>
+          <li>Finished: <span id="delivered"></span id="finished"> 0</li>
+          <li>Monthly Goal: <span id="goal"></span id="monthly-goal">10</li>
         </ul>
       </div>
 
@@ -54,6 +57,7 @@
             <th>Client Name</th>
             <th>Description</th>
             <th>Date</th>
+            <th>Time</th>
             <th>PS Type</th>
             <th>PS Pricing</th>
             <th>Edit</th>
@@ -111,6 +115,6 @@
       </form>
     </div>
   </body>
+  <script src="/functions.js"></script>
   <script src="/modalFunctions.js"></script>
-  <script src="formFunctions.js"></script>
 </html>

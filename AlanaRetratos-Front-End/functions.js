@@ -55,19 +55,25 @@ async function listAppointments() {
   });
   const allAppointments = await data.json();
 
-  allAppointments.map(function (item, index) {
+  allAppointments.map(function (item) {
     const tableBody = document.getElementById("appointments");
     const element = document.createElement("tr");
     element.classList.add("row");
+    const date = new Date(item.date).toLocaleDateString();
+    const time = new Date(item.date).toLocaleTimeString();
+
     element.innerHTML = `
         <td>${item.id}</td>
         <td>${item.clientName}</td>
         <td>${item.description}</td>
-        <td>${item.date}</td>
+        <td>${date}</td>
+        <td>${time}</td>
         <td>${item.photoShootType}</td>
         <td>${item.photoShootPricing}</td>
-        <td><i class="fa-solid fa-pen-to-square"></i></td>
-        <td><i class="fa-solid fa-trash"></i></td>
+        <td><button class="btn-edit"
+        onClick={() => editAppointment(item.id)}><i class="fa-solid fa-pen-to-square"></i></button></td>
+        <td><button class="btn-edit"
+        onClick={() => removeAppointment(item.id)}><i class="fa-solid fa-trash"></i></button></td>
       `;
 
     // document.body.appendChild(tableBody);
@@ -76,10 +82,18 @@ async function listAppointments() {
     tableBody.appendChild(element);
   });
 }
-
 //Executes the function above
 listAppointments();
 
+const refreshButton = document.getElementById("btn-refresh");
+const refreshPage = function () {
+  window.location.reload();
+};
+refreshButton.addEventListener("click", refreshPage);
+
+const editAppointment = function (appointmentId) {};
+
+// < OPEN AND CLOSE LIST/CALENDAR FUNCTIONS
 const calendar = document.getElementById("calendar");
 const table = document.getElementById("appointment-table");
 const selectCalendarIcon = document.querySelector(".btn-hide-list");
@@ -97,9 +111,8 @@ const showList = function () {
   createCalendar();
   selectListIcon.classList.add("disabled");
   selectCalendarIcon.classList.remove("disabled");
-
-  // document.getElementById("calendar").outerHTML = "";
 };
-
 selectCalendarIcon.addEventListener("click", showCalendar);
 selectListIcon.addEventListener("click", showList);
+
+//>
