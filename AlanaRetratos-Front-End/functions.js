@@ -11,7 +11,7 @@ form.addEventListener("submit", function (event) {
     objDate[0],
     objDate[1] - 1,
     objDate[2],
-    objTime[0] - 3,
+    objTime[0],
     objTime[1]
   );
   const newObj = {
@@ -40,6 +40,7 @@ function saveInDb(jsonFormat) {
     .then(function (text) {
       console.log(text);
     })
+    .then(() => alert("Success"))
     .catch(function (error) {
       console.error(error);
     });
@@ -57,6 +58,7 @@ async function listAppointments() {
     element.classList.add("row");
     const date = new Date(item.date).toLocaleDateString();
     const time = new Date(item.date).toLocaleTimeString();
+
     element.setAttribute("id", item.id);
     element.innerHTML = `
         <td>${item.id}</td>
@@ -73,19 +75,45 @@ async function listAppointments() {
       `;
     tableBody.appendChild(element);
   });
+  createCalendar(
+    allAppointments.map((obj) => {
+      return {
+        title: obj.clientName,
+        start: obj.date,
+        eventBorderColor: "rgb(128, 128, 128)",
+      };
+    })
+  );
 }
 //Executes the function above, iniciating the list;
 listAppointments();
 
 // Edit and Remove appointments functions using ID !!
 const removeAppointment = function (appointmentId) {
+  const confirmationModal = document.getElementById("confirmation-modal");
+  const yesButton = document.getElementById("yes-button");
+  const noButton = document.getElementById("no-button");
   const tableRow = document.getElementById(appointmentId);
-  if (tableRow) {
+
+  const cancelAction = function () {
+    confirmationModal.classList.add("hidden");
+  };
+
+  const deleteRow = function () {
+    tableRow.remove();
+    confirmationModal.classList.add("hidden");
     fetch(`${url}/appointment/${appointmentId}`, { method: "DELETE" }).then(
       () => alert("Success")
     );
+    setTimeout(() => {
+      window.location.reload();
+    }, 2000);
+  };
 
-    tableRow.remove();
+  if (tableRow) {
+    confirmationModal.classList.remove("hidden");
+    yesButton.addEventListener("click", deleteRow);
+    noButton.addEventListener("click", cancelAction);
   }
 };
 
@@ -105,20 +133,17 @@ const table = document.getElementById("appointment-table");
 const selectCalendarIcon = document.getElementById("hide-list");
 const selectListIcon = document.getElementById("hide-calendar");
 
-const showCalendar = function () {
+const calendarIcon = function () {
   table.classList.remove("hidden"),
     selectCalendarIcon.classList.add("disabled"),
     selectListIcon.classList.remove("disabled"),
     (calendar.innerHTML = "");
 };
 
-const showList = function () {
-  table.classList.add("hidden"),
-    createCalendar(),
+const listIcon = function () {
+  listAppointments(),
+    table.classList.add("hidden"),
     selectListIcon.classList.add("disabled"),
     selectCalendarIcon.classList.remove("disabled");
 };
-// selectCalendarIcon.addEventListener("click", showCalendar);
-// selectListIcon.addEventListener("click", showList);
-
 //  END

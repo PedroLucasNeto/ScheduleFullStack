@@ -164,6 +164,7 @@ button {
   border: none;
   background-color: black;
   font-weight: 600;
+  
 }
 
 .button-container{
@@ -199,7 +200,7 @@ button {
   border-radius: 5px;
   text-align: center;
   font-size: 0.9em;
-  margin-top: 20px ;
+  margin: 10px;
 }
 
 .btn-open {
@@ -220,6 +221,13 @@ button {
 
 
 /* Modal Start */
+select{
+  justify-content: fit-content;
+  padding: 7px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
 .modal {
   display: flex;
   flex-direction: column;
@@ -254,19 +262,6 @@ button {
   font-size: 0.9em;
 }
 
-.modal p {
-  font-size: 0.9rem;
-  color: #777;
-  margin: 0.4rem 0 0.2rem;
-}
-
-select{
-  justify-content: fit-content;
-  padding: 7px;
-  margin-bottom: 10px;
-  border-radius: 5px;
-}
-
 .overlay {
   position: fixed;
   top: 0;
@@ -294,5 +289,25 @@ select{
 /* Modal confirmation */
 
 .modal-confirm{
+  justify-content: flex-start;
+  min-height: fit-content;
+  width: fit-content;
+}
 
+.space-buttons{
+  display: flex;
+  justify-content:center;
+}
+
+
+/* Modal confirmation END*/
+
+
+/* icons*/
+.icon{
+  font-size: 2em;
+}
+
+.center{
+  margin: 10px auto;
 }
