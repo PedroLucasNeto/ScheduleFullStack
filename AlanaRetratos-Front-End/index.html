@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <link rel="stylesheet" href="styles.css" />
     <script src="/node_modules/fullcalendar/index.global.js"></script>
-    <script src="/script.js"></script>
+    <script src="/calendar.js"></script>
     <script
       src="https://kit.fontawesome.com/1a3476b34b.js"
       crossorigin="anonymous"
@@ -40,7 +40,7 @@
             <i class="fa-solid fa-calendar"></i>
           </button>
           <button id="hide-list" onclick="listIcon()" class="btn">
-            <i class="fa-sharp fa-solid fa-list"></i>
+            <i class="fa-solid fa-gear"></i>
           </button>
           <button id="btn-refresh" class="btn">
             <i class="fa-solid fa-rotate-right"></i>
@@ -75,7 +75,7 @@
     </div>
     <!-- MODAL SO WE CAN ADD A NEW APPOINTMENT ON THE CALENDAR -->
     <div class="overlay hidden"></div>
-    <div id="forms-modal" class="modal hidden">
+    <div id="forms-modal" class="modal doodle hidden">
       <div class="flex">
         <h2>Appointment Data</h2>
         <button class="btn-close icon">

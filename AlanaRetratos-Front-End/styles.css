@@ -67,16 +67,16 @@ li {
   position: absolute;
   content: ' ';
   display: block;
-  opacity: 0.05;
+  opacity: 0.06;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
   z-index: -1;
   background-repeat: no-repeat;
-  background-position: top;
+  background-position: 100%;
   background-size: cover;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(255, 232, 210, 1)), url(assets/img/93845657-hand-drawn-doodle-photography-seamless-pattern.webp);
+  background: url(assets/img/istockphoto-1358066576-612x612.jpg);
 }
 /* Doodle End*/
 
@@ -109,7 +109,7 @@ li {
 .main-container {
   display: flex;
   flex-direction: column;
-  height: fit-content;
+  height: 100vh;
   align-items: center;
   justify-content: space-around;
 }
@@ -130,6 +130,7 @@ li {
   padding: 20px 20px;
   width: 1200px;
   height: 700px;
+  background-color: rgba(255, 255, 255, 0.776);
 }
 
 .appointment-form {
@@ -164,7 +165,6 @@ button {
   border: none;
   background-color: black;
   font-weight: 600;
-  
 }
 
 .button-container{
@@ -200,7 +200,7 @@ button {
   border-radius: 5px;
   text-align: center;
   font-size: 0.9em;
-  margin: 10px;
+  margin: 20px 10px;
 }
 
 .btn-open {
@@ -289,9 +289,11 @@ select{
 /* Modal confirmation */
 
 .modal-confirm{
+  top: 140px;
   justify-content: flex-start;
   min-height: fit-content;
   width: fit-content;
+  background-color: rgba(255, 243, 230, 0.9);
 }
 
 .space-buttons{

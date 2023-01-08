@@ -62,6 +62,9 @@ const getAppointments = async function () {
       return {
         title: obj.clientName,
         start: obj.date,
+        extendedProps: {
+          type: obj.photoShootType,
+        },
       };
     })
   );
