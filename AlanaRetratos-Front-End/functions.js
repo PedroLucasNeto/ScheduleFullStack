@@ -96,7 +96,11 @@ function createAppointmentsList() {
 
 //END
 
-const changeAppointment = function (appointmentId, element) {};
+const changeAppointment = function (objId) {
+  const tr = document.getElementById(objId);
+  console.log(tr);
+  openModal();
+};
 
 // Remove appointment function using ID
 const removeAppointment = function (appointmentId) {

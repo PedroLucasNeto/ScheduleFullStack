@@ -37,8 +37,10 @@ const getAppointments = async function () {
 //END
 
 //Edit the appointment with the matching ID
-const editAppointment = function (appointmentId) {
-  fetch(`${url}/appointment/${appointmentId}`, { method: "PUT" }).then(() =>
-    alert("Appointment updated succesfully")
-  );
+const editAppointment = function (appointment) {
+  fetch(
+    `${url}/appointment/${appointment.id}`,
+    { method: "PUT" },
+    { body: JSON.stringify(appointment) }
+  ).then(() => alert("Appointment updated succesfully"));
 };
