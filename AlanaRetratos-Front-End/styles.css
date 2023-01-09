@@ -2,13 +2,22 @@
   --grey: rgb(125, 130, 133);
   --lightGrey: rgba(125, 130, 133, 0.06);
   --purple: rgb(125, 27, 76);
-  --lightPurple:rgba(125, 27, 76, 0.275);
+  --lightPurple:rgba(125, 27, 76, 0.4);
   --yellow: rgb(231, 201, 137);
   --lightYellow:rgba(231, 201, 137, 0.313);
   --white: #fffafa;
   --black: rgb(0, 0, 0);
   --red: rgb(122 21 25);
   --blue: rgb(26, 26, 253);
+
+  --mom: rgba(123, 9, 9, 0.767);
+  --fashion: rgba(132,192,141, 0.4);
+  --career:rgba(56, 126, 237, 0.4);
+  --event: rgba(255, 105, 74, 0.4);
+  --debutant: rgba(74,24,46, 0.4);
+
+
+
 }
 
 /* General Tags */
@@ -23,11 +32,6 @@ body {
   height: 100vh;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   
-}
-td{
-  border: 1px solid black;
-  border-radius: 3px;
-  padding: 10px;
 }
 
 textarea{
@@ -99,6 +103,8 @@ li {
   align-items: center;
   justify-content: space-between;
   width: 100vw;
+  position: fixed;
+  top: 100px;
 }
 
 .header-button>a {
@@ -109,7 +115,6 @@ li {
 .main-container {
   display: flex;
   flex-direction: column;
-  height: 100vh;
   align-items: center;
   justify-content: space-around;
 }
@@ -128,6 +133,8 @@ li {
 
 .calendar-div {
   padding: 20px 20px;
+  position: fixed;
+  top: 200px;
   width: 1200px;
   height: 700px;
   background-color: rgba(255, 255, 255, 0.776);
@@ -144,20 +151,6 @@ li {
   background-color: rgba(128, 128, 128, 0.5) ;
 }
 
-/* Table */
-.appointment-list{
-  width: 80%;
-  padding: 20px;
-
-  border: 1px solid rgb(0, 0, 0);
-  border-radius: 5px;
-
-  background-color: var(--lightGrey);
-
-  text-align: center;
-  font-family: 'Times New Roman', Times, serif, sans-serif;
-
-}
 /* Buttons Start */
 
 button {
@@ -313,3 +306,45 @@ select{
 .center{
   margin: 10px auto;
 }
+
+/* Table styles */
+.styled-table {
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  font-family: sans-serif;
+  min-width: 400px;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.3);
+  position: fixed;
+  top: 250px;
+}
+
+.styled-table thead tr {
+  background-color: var(--black);
+  color: #ffffff;
+  text-align: center;
+}
+
+.styled-table th,
+.styled-table td {
+    padding: 15px 15px;
+    text-align: center;
+}
+
+.styled-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+  border-bottom: 2px solid #000000;
+}
+
+.styled-table tbody tr.active-row {
+  font-weight: bold;
+  color: #000000;
+}
+/* END */
