@@ -1,5 +1,5 @@
 :root {
-  --grey: rgb(125, 130, 133);
+  --grey: #7d8285;
   --lightGrey: rgba(125, 130, 133, 0.06);
   --purple: rgb(125, 27, 76);
   --lightPurple:rgba(125, 27, 76, 0.4);
@@ -16,8 +16,7 @@
   --event: rgba(255, 105, 74, 0.4);
   --debutant: rgba(74,24,46, 0.4);
 
-
-
+ 
 }
 
 /* General Tags */
@@ -32,6 +31,13 @@ body {
   height: 100vh;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   
+  --fc-button-border-color: #ffffff;
+  --fc-button-text-color: #fff;
+  --fc-border-color: #ddd;
+  --fc-button-bg-color: #000000;
+  --fc-button-hover-bg-color: rgb(125, 130, 133);
+  --fc-button-active-bg-color: #7d8285;
+  --fc-today-bg-color: rgba(125, 130, 133, 0.15);
 }
 
 textarea{
@@ -140,6 +146,7 @@ li {
   background-color: rgba(255, 255, 255, 0.776);
 }
 
+
 .appointment-form {
   display: flex;
   flex-direction: column;
@@ -193,7 +200,6 @@ button {
   border-radius: 5px;
   text-align: center;
   font-size: 0.9em;
-  margin: 20px 10px;
 }
 
 .btn-open {
@@ -239,6 +245,7 @@ select{
 
   background-color: white;
   border: 1px solid #ddd;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.3);
   border-radius: 15px;
 }
 
@@ -282,20 +289,45 @@ select{
 /* Modal confirmation */
 
 .modal-confirm{
-  top: 140px;
-  justify-content: flex-start;
   min-height: fit-content;
-  width: fit-content;
-  background-color: rgba(255, 243, 230, 0.9);
+  width: 400px;
+  background-color: rgb(255, 255, 255,);
+  padding: 0;
+  
 }
 
-.space-buttons{
+.modal-confirm p {
+  color: red;
+  margin: 20px;
+
   display: flex;
   justify-content:center;
 }
 
 
-/* Modal confirmation END*/
+.inside-modal{
+  background-color: #000000;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  padding: 5px 10px;
+}
+.inside-modal h2{
+  color: rgb(255, 255, 255);
+  margin: 10px;
+}
+
+.modal-confirm button{
+  margin: 10px 10px;
+}
+
+
+.space-buttons{
+  display: flex;
+  justify-content:flex-end;
+}
+
+
+/* END*/
 
 
 /* icons*/
@@ -304,8 +336,11 @@ select{
 }
 
 .center{
-  margin: 10px auto;
+  margin:auto;
+
 }
+/* END */
+
 
 /* Table styles */
 .styled-table {

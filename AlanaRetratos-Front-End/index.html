@@ -17,15 +17,15 @@
   <body class="doodle">
     <header class="main-header">
       <div class="header-div">
-        <img
-          class="logo-img"
-          src="/assets/img/Prancheta 4.png"
-          alt="Logo de alana ferreira retratos"
-        />
+        <a href="#"
+          ><img
+            class="logo-img"
+            src="/assets/img/Prancheta 4.png"
+            alt="Logo de alana ferreira retratos"
+        /></a>
+
         <button class="header-button">
-          <a href="https://wa.me/message/2KOMKHPRJKFMJ1" target="_blank"
-            >WhatsApp</a
-          >
+          <a href="https://web.whatsapp.com/" target="_blank">WhatsApp</a>
         </button>
       </div>
     </header>
@@ -37,7 +37,11 @@
               <span class="btn-specific">New</span></i
             >
           </button>
-          <button id="hide-calendar" onclick="calendarIcon()" class="btn">
+          <button
+            id="hide-calendar"
+            onclick="calendarIcon()"
+            class="btn disabled"
+          >
             <i class="fa-solid fa-calendar"></i>
           </button>
           <button id="hide-list" onclick="listIcon()" class="btn">
@@ -127,10 +131,12 @@
     </div>
     <!-- Modal to confirm deletion -->
     <div id="confirmation-modal" class="modal modal-confirm hidden">
-      <h2 class="center">Are you sure?</h2>
-      <p class="center" style="color: red">
-        The appointment will be deleted permanently!
-      </p>
+      <div class="inside-modal">
+        <h2>Are you sure?</h2>
+      </div>
+      <div style="border-bottom: 1px solid black">
+        <p>The appointment will be deleted permanently!</p>
+      </div>
       <div class="space-buttons">
         <button id="yes-button" class="btn">Yes</button>
         <button id="no-button" class="btn">No</button>

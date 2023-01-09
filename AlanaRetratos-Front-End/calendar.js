@@ -4,6 +4,7 @@ function createCalendar(data) {
     initialView: "dayGridMonth",
     timeZone: "local",
     events: data,
+
     buttonText: {
       month: "Month",
       agendaDay: "Day",

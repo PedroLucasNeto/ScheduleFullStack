@@ -93,6 +93,7 @@ function createAppointmentsList() {
     // element.classList.add('')
   });
 }
+
 //END
 
 const changeAppointment = function (appointmentId, element) {};
