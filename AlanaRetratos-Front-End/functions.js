@@ -1,7 +1,7 @@
 //ADD APPOINTMENT THROUGH FORM
 const form = document.querySelector("form");
-form.addEventListener("submit", function (event) {
-  event.preventDefault();
+
+const createAppointment = function () {
   const fd = new FormData(form);
   const obj = Object.fromEntries(fd);
   const objDate = obj.date.split("-");
@@ -25,9 +25,10 @@ form.addEventListener("submit", function (event) {
   saveInDb(jsonFormat);
 
   setTimeout(() => {
+    closeModal();
     window.location.reload();
   }, 2000);
-});
+};
 //END
 
 const appointmentList = [];
@@ -84,10 +85,10 @@ function createAppointmentsList() {
         <td>${time}</td>
         <td>${item.photoShootType}</td>
         <td>${item.photoShootPricing}</td>
-        <td><button class="btn-edit"
-        onClick={changeAppointment(${item.id})}><i class="fa-solid fa-pen-to-square"></i></button></td>
+        <td><button id="editButton" class="btn-edit"
+        onclick={changeAppointment(${item.id})}><i class="fa-solid fa-pen-to-square"></i></button></td>
         <td><button class="btn-remove"
-        onClick={removeAppointment(${item.id})}><i class="fa-solid fa-trash"></i></button></td>
+        onclick={removeAppointment(${item.id})}><i class="fa-solid fa-trash"></i></button></td>
       `;
     tableBody.appendChild(element);
     // element.classList.add('')
@@ -96,10 +97,56 @@ function createAppointmentsList() {
 
 //END
 
-const changeAppointment = function (objId) {
-  const tr = document.getElementById(objId);
-  console.log(tr);
-  openModal();
+const changeAppointment = async function (objId) {
+  openModal("editButton");
+  const submitButton = document.getElementById("submit");
+  const appointmentFromFetch = await getAppointmentById(objId);
+  const appointment = await appointmentFromFetch.json();
+  const clientName = document.getElementById("clientName");
+  const formDescription = document.getElementById("description");
+  const formDate = document.getElementById("date");
+  const formTime = document.getElementById("time");
+  const formPricing = document.getElementById("photoShootPricing");
+  const formType = document.getElementById("photoShootType");
+  const date = new Date(appointment.date).toLocaleDateString();
+  const time = new Date(appointment.date).toLocaleTimeString();
+
+  clientName.value = appointment.clientName;
+  formDescription.value = appointment.description;
+  formDate.value = date;
+  formTime.value = time;
+  formPricing.value = appointment.photoShootPricing;
+  formType.value = appointment.photoShootType;
+
+  const fd = new FormData(form);
+  const obj = Object.fromEntries(fd);
+  const objDate = obj.date.split("-");
+  const objTime = obj.time.split(":");
+  const fullDate = new Date(
+    objDate[0],
+    objDate[1],
+    objDate[2],
+    objTime[0],
+    objTime[1]
+  );
+  console.log(fullDate);
+  const newObj = {
+    clientName: obj.clientName,
+    description: obj.description,
+    date: obj.date,
+    photoShootType: obj.photoShootType,
+    photoShootPricing: obj.photoShootPricing,
+  };
+  const jsonFormat = JSON.stringify(newObj);
+
+  submitButton.addEventListener("click", editAppointment(jsonFormat));
+
+  console.log(newObj);
+  console.log(appointment);
+  setTimeout(() => {
+    closeModal();
+    window.location.reload();
+  }, 2000);
 };
 
 // Remove appointment function using ID

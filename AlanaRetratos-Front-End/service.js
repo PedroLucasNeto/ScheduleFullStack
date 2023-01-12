@@ -36,6 +36,13 @@ const getAppointments = async function () {
 };
 //END
 
+const getAppointmentById = async function (objId) {
+  const appointment = await fetch(`${url}/appointment/id/${objId}`, {
+    method: "get",
+  });
+  return appointment;
+};
+
 //Edit the appointment with the matching ID
 const editAppointment = function (appointment) {
   fetch(
@@ -44,3 +51,13 @@ const editAppointment = function (appointment) {
     { body: JSON.stringify(appointment) }
   ).then(() => alert("Appointment updated succesfully"));
 };
+
+// const obj = {
+//   id: item.id,
+//   clientName: item.clientName,
+//   description: item.description,
+//   date: item.date,
+//   photoShootType: item.photoShootType,
+//   photoShootPricing: item.photoShootPricing,
+//   photoShootStatus: item.photoShootStatus,
+// };

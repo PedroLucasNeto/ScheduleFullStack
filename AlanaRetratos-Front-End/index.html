@@ -32,7 +32,11 @@
     <div class="main-container">
       <div class="info-display">
         <div class="button-container">
-          <button class="btn btn-open">
+          <button
+            class="btn btn-open"
+            id="createButton"
+            onclick="openModal('createButton')"
+          >
             <i class="fa-regular fa-calendar-plus">
               <span class="btn-specific">New</span></i
             >
@@ -110,23 +114,21 @@
         <label for="time">Time:</label>
         <input type="time" id="time" name="time" required="true" />
         <label for="photoShootPricing">Photo Shoot Pricing</label>
-        <select name="photoShootPricing">
-          <option>SILVER</option>
-          <option>GOLD</option>
-          <option>DIAMOND</option>
+        <select id="photoShootPricing" name="photoShootPricing">
+          <option value="SILVER">SILVER</option>
+          <option value="GOLD">GOLD</option>
+          <option value="DIAMOND">DIAMOND</option>
         </select>
         <label for="photoShootType">Photo Shoot Type</label>
-        <select name="photoShootType">
-          <option>FEMININE</option>
-          <option>FASHION</option>
-          <option>MOM</option>
-          <option>CAREER</option>
-          <option>EVENT</option>
-          <option>DEBUTANT</option>
+        <select id="photoShootType" name="photoShootType">
+          <option value="FEMININE">FEMININE</option>
+          <option value="FASHION">FASHION</option>
+          <option value="MOM">MOM</option>
+          <option value="CAREER">CAREER</option>
+          <option value="EVENT">EVENT</option>
+          <option value="DEBUTANT">DEBUTANT</option>
         </select>
-        <button id="submit" class="btn" type="submit" onsubmit="closeModal()">
-          Submit
-        </button>
+        <button id="submit" class="btn" type="submit" onclick="">Submit</button>
       </form>
     </div>
     <!-- Modal to confirm deletion -->
