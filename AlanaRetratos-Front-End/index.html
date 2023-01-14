@@ -10,8 +10,20 @@
       crossorigin="anonymous"
     ></script>
     <script src="service.js"></script>
-
     <link rel="shortcut icon" href="assets/img/fav.png" />
+    <!-- <link
+      href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
+      rel="stylesheet"
+    /> -->
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/toastify-js"
+    ></script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
     <title>Alana Retratos Agendamentos</title>
   </head>
   <body class="doodle">
@@ -35,7 +47,7 @@
           <button
             class="btn btn-open"
             id="createButton"
-            onclick="openModal('createButton')"
+            onclick="openModal('create')"
           >
             <i class="fa-regular fa-calendar-plus">
               <span class="btn-specific">New</span></i
@@ -62,7 +74,6 @@
           <li>Monthly Goal: <span id="monthly-goal"></span>10</li>
         </ul>
       </div>
-
       <table id="appointment-table" class="styled-table hidden">
         <thead class="thead">
           <tr>
@@ -79,7 +90,6 @@
         </thead>
         <tbody id="appointments"></tbody>
       </table>
-
       <div id="calendar" class="calendar-div"></div>
     </div>
     <!-- MODAL SO WE CAN ADD A NEW APPOINTMENT ON THE CALENDAR -->
@@ -87,6 +97,8 @@
     <div id="forms-modal" class="modal doodle hidden">
       <div class="flex">
         <h2>Appointment Data</h2>
+        <input type="text" id="number" class="hidden" />
+        <h2 id="appointmentId"></h2>
         <button class="btn-close icon">
           <i class="fa-regular fa-circle-xmark"></i>
         </button>
@@ -128,7 +140,7 @@
           <option value="EVENT">EVENT</option>
           <option value="DEBUTANT">DEBUTANT</option>
         </select>
-        <button id="submit" class="btn" type="submit" onclick="">Submit</button>
+        <button id="submit" class="btn" type="submit">Submit</button>
       </form>
     </div>
     <!-- Modal to confirm deletion -->
@@ -145,6 +157,7 @@
       </div>
     </div>
   </body>
+  <!-- END -->
   <script src="/functions.js"></script>
   <script src="/modalFunctions.js"></script>
 </html>

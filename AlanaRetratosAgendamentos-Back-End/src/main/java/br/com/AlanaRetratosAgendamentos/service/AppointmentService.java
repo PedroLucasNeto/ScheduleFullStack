@@ -29,15 +29,16 @@ public class AppointmentService {
 		appointmentRepository.delete(appointment);
 	}
 
-	public Appointment updateAppointment( Appointment appointment) throws Exception {
+	public Appointment updateAppointment(Long id, Appointment appointment) throws Exception {
 
-		Appointment updatedAppointment = appointmentRepository.findById(appointment.getId())
+		Appointment updatedAppointment = appointmentRepository.findById(id)
 				.orElseThrow(() -> new Exception("Couldn't find an appointment with this ID" + appointment.getId()));
 
-		updatedAppointment.setPhotoShootType(appointment.getPhotoShootType());
-
-		updatedAppointment.setDate(appointment.getDate());
+		updatedAppointment.setClientName(appointment.getClientName());
 		updatedAppointment.setDescription(appointment.getDescription());
+		updatedAppointment.setDate(appointment.getDate());
+		updatedAppointment.setPhotoShootType(appointment.getPhotoShootType());
+		updatedAppointment.setPhotoShootPricing(appointment.getPhotoShootPricing());
 		appointmentRepository.save(updatedAppointment);
 
 		return updatedAppointment;

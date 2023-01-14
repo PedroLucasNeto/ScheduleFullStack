@@ -8,14 +8,23 @@ function saveInDb(jsonFormat) {
       "Content-Type": "application/json",
     },
   })
-    .then(function (response) {
-      return response.text();
+    .then(() => {
+      Toastify({
+        text: "Appointment created successfully",
+        className: "info",
+        style: {
+          background: "linear-gradient(to right, #00b09b, #96c93d)",
+        },
+      }).showToast();
     })
-    .then(function (text) {
-      console.log(text);
-    })
-    .then(() => alert("Appointment added succesfully"))
     .catch(function (error) {
+      Toastify({
+        text: "Sorry! It was not possible to save the appointment on the data base!",
+        className: "info",
+        style: {
+          background: "linear-gradient(to right, #000000, #96c93d)",
+        },
+      }).showToast();
       console.error(error);
     });
 }
@@ -23,7 +32,13 @@ function saveInDb(jsonFormat) {
 //Delete appointmentById
 function deleteAppointment(appointmentId) {
   fetch(`${url}/appointment/${appointmentId}`, { method: "DELETE" }).then(() =>
-    alert("Appointment deleted succesfully")
+    Toastify({
+      text: "Appointment deleted successfully",
+      className: "info",
+      style: {
+        background: "linear-gradient(to right, #00b09b, #96c93d)",
+      },
+    }).showToast()
   );
 }
 
@@ -45,19 +60,23 @@ const getAppointmentById = async function (objId) {
 
 //Edit the appointment with the matching ID
 const editAppointment = function (appointment) {
-  fetch(
-    `${url}/appointment/${appointment.id}`,
-    { method: "PUT" },
-    { body: JSON.stringify(appointment) }
-  ).then(() => alert("Appointment updated succesfully"));
+  const id = appointment.id;
+  const json = JSON.stringify(appointment);
+  fetch(`${url}/appointment/${id}`, {
+    method: "PUT",
+    body: json,
+    headers: { "content-type": "application/json" },
+  })
+    .then(() => {
+      Toastify({
+        text: "Appointment edited successfully",
+        className: "info",
+        style: {
+          background: "linear-gradient(to right, #00b09b, #96c93d)",
+        },
+      }).showToast();
+    })
+    .catch(function (error) {
+      console.error(error);
+    });
 };
-
-// const obj = {
-//   id: item.id,
-//   clientName: item.clientName,
-//   description: item.description,
-//   date: item.date,
-//   photoShootType: item.photoShootType,
-//   photoShootPricing: item.photoShootPricing,
-//   photoShootStatus: item.photoShootStatus,
-// };

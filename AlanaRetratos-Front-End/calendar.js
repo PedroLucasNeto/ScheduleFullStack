@@ -4,14 +4,15 @@ function createCalendar(data) {
     initialView: "dayGridMonth",
     timeZone: "local",
     events: data,
+    contentHeight: 700,
 
     buttonText: {
-      month: "Month",
+      month: "Default",
       agendaDay: "Day",
-      listWeek: "Week",
-      listMonth: "ListMonth",
-      listYear: "ListYear",
-      agendaWeek: "Week",
+      listWeek: "Week List",
+      listMonth: "Month List",
+      listYear: "Year List",
+      agendaWeek: "Week List",
       today: "Today",
     },
     headerToolbar: {

@@ -38,8 +38,8 @@ public class AppointmentController {
 	}
 
 	@PutMapping("/{id}")
-	ResponseEntity<Appointment> updateAppointment( @RequestBody Appointment appointment) throws Exception {
-		Appointment newAppointment = appointmentService.updateAppointment( appointment);
+	ResponseEntity<Appointment> updateAppointment(@PathVariable Long id, @RequestBody Appointment appointment) throws Exception {
+		Appointment newAppointment = appointmentService.updateAppointment(id, appointment);
 		return new ResponseEntity<Appointment>(newAppointment, HttpStatus.OK);
 	}
 

@@ -1,19 +1,20 @@
+const submitButton = document.getElementById("submit");
 const modal = document.getElementById("forms-modal");
 const overlay = document.querySelector(".overlay");
 
 const closeModalBtn = document.querySelector(".btn-close");
 
 // open modal function
+
 const openModal = function (id) {
-  const submitButton = document.getElementById("submit");
-  if (id === "createButton") {
-    submitButton.onclick = createAppointment;
-    modal.classList.remove("hidden");
-    overlay.classList.remove("hidden");
-  } else if (id === "editButton") {
-    modal.classList.remove("hidden");
-    overlay.classList.remove("hidden");
+  if (id === "create") {
+    submitButton.id = "create";
+  } else {
+    submitButton.id = "edit";
   }
+
+  modal.classList.remove("hidden");
+  overlay.classList.remove("hidden");
 };
 // close modal function
 const closeModal = function () {
@@ -31,3 +32,13 @@ document.addEventListener("keydown", function (e) {
     closeModal();
   }
 });
+
+const createOrEdit = function () {
+  if (submitButton.id === "create") {
+    return createAppointment();
+  } else {
+    return changeAppointment();
+  }
+};
+
+submitButton.addEventListener("click", createOrEdit);

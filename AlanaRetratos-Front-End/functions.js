@@ -1,6 +1,5 @@
 //ADD APPOINTMENT THROUGH FORM
 const form = document.querySelector("form");
-
 const createAppointment = function () {
   const fd = new FormData(form);
   const obj = Object.fromEntries(fd);
@@ -20,14 +19,17 @@ const createAppointment = function () {
     photoShootType: obj.photoShootType,
     photoShootPricing: obj.photoShootPricing,
   };
-  console.log(newObj);
-  const jsonFormat = JSON.stringify(newObj);
-  saveInDb(jsonFormat);
 
-  setTimeout(() => {
+  const jsonFormat = JSON.stringify(newObj);
+  let formIsValid = formValid();
+
+  if (formIsValid) {
+    saveInDb(jsonFormat);
     closeModal();
-    window.location.reload();
-  }, 2000);
+    setTimeout(() => {
+      window.location.reload();
+    }, 2000);
+  }
 };
 //END
 
@@ -35,7 +37,6 @@ const appointmentList = [];
 const calendarAppointmentList = [];
 
 //POPULATE LIST AND CALENDAR
-
 const populate = async function (getAppointments) {
   const dataFromFetch = await getAppointments();
   const allAppointments = await dataFromFetch.json();
@@ -66,7 +67,7 @@ const populate = async function (getAppointments) {
 populate(getAppointments);
 // END //
 
-//Create a list of appointments on the TableBody with ID:appointments in the INDEX;
+//Create a list (with ID = appointments) on the TableBody in the INDEX.HTML;
 function createAppointmentsList() {
   const tbody = document.getElementById("appointments");
   tbody.innerHTML = "";
@@ -86,20 +87,18 @@ function createAppointmentsList() {
         <td>${item.photoShootType}</td>
         <td>${item.photoShootPricing}</td>
         <td><button id="editButton" class="btn-edit"
-        onclick={changeAppointment(${item.id})}><i class="fa-solid fa-pen-to-square"></i></button></td>
+        onclick={fillModal(${item.id})}><i class="fa-solid fa-pen-to-square"></i></button></td>
         <td><button class="btn-remove"
         onclick={removeAppointment(${item.id})}><i class="fa-solid fa-trash"></i></button></td>
       `;
     tableBody.appendChild(element);
-    // element.classList.add('')
   });
 }
 
 //END
 
-const changeAppointment = async function (objId) {
-  openModal("editButton");
-  const submitButton = document.getElementById("submit");
+const fillModal = async function (objId) {
+  openModal("0");
   const appointmentFromFetch = await getAppointmentById(objId);
   const appointment = await appointmentFromFetch.json();
   const clientName = document.getElementById("clientName");
@@ -108,45 +107,58 @@ const changeAppointment = async function (objId) {
   const formTime = document.getElementById("time");
   const formPricing = document.getElementById("photoShootPricing");
   const formType = document.getElementById("photoShootType");
-  const date = new Date(appointment.date).toLocaleDateString();
-  const time = new Date(appointment.date).toLocaleTimeString();
+  const formId = document.getElementById("number");
+  let date = new Date(appointment.date);
 
+  formId.value = objId;
   clientName.value = appointment.clientName;
   formDescription.value = appointment.description;
-  formDate.value = date;
-  formTime.value = time;
+  formDate.value =
+    date.getFullYear() + "-" + date.getMonth() + 1 + "-" + date.getDate();
+  formTime.value = date.getHours() + ":" + date.getMinutes();
   formPricing.value = appointment.photoShootPricing;
   formType.value = appointment.photoShootType;
+};
 
+const changeAppointment = function () {
+  const formId = document.getElementById("number");
   const fd = new FormData(form);
   const obj = Object.fromEntries(fd);
   const objDate = obj.date.split("-");
   const objTime = obj.time.split(":");
   const fullDate = new Date(
     objDate[0],
-    objDate[1],
+    objDate[1] - 1,
     objDate[2],
     objTime[0],
     objTime[1]
   );
-  console.log(fullDate);
+
   const newObj = {
+    id: formId.value,
     clientName: obj.clientName,
     description: obj.description,
-    date: obj.date,
+    date: fullDate,
     photoShootType: obj.photoShootType,
     photoShootPricing: obj.photoShootPricing,
   };
-  const jsonFormat = JSON.stringify(newObj);
 
-  submitButton.addEventListener("click", editAppointment(jsonFormat));
-
-  console.log(newObj);
-  console.log(appointment);
-  setTimeout(() => {
+  let formIsValid = formValid();
+  if (formIsValid) {
+    editAppointment(newObj);
     closeModal();
-    window.location.reload();
-  }, 2000);
+    setTimeout(() => {
+      window.location.reload();
+    }, 2000);
+  } else {
+    Toastify({
+      text: "ERROR",
+      className: "info",
+      style: {
+        background: "linear-gradient(to right, #000000, #96c93d)",
+      },
+    }).showToast();
+  }
 };
 
 // Remove appointment function using ID
@@ -164,9 +176,13 @@ const removeAppointment = function (appointmentId) {
     deleteAppointment(appointmentId);
     tableRow.remove();
     confirmationModal.classList.add("hidden");
-    setTimeout(() => {
-      window.location.reload();
-    }, 2000);
+    appointmentList.map(function (item) {
+      if (item.id === appointmentId) {
+        appointmentList.pop(item);
+      }
+    });
+    createAppointmentsList();
+    console.log(appointmentList);
   };
 
   if (tableRow) {
@@ -207,3 +223,25 @@ const refreshPage = function () {
 };
 refreshButton.addEventListener("click", refreshPage);
 //END
+
+const formValid = function () {
+  const clientName = document.getElementById("clientName");
+  const formDate = document.getElementById("date");
+  const formTime = document.getElementById("time");
+  const formPricing = document.getElementById("photoShootPricing");
+  const formType = document.getElementById("photoShootType");
+  if (
+    clientName.value === "" ||
+    formDate.value === "" ||
+    formTime.value === "" ||
+    formPricing.value === "" ||
+    formType.value === ""
+  ) {
+    return false;
+  }
+  return true;
+};
+
+form.addEventListener("submit", function (event) {
+  event.preventDefault();
+});
