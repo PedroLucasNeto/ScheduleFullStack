@@ -137,7 +137,7 @@ li {
   position: fixed;
   top: 200px;
   width: 1200px;
-  /* max-height: 700px; */
+  max-height: 700px;
   background-color: rgba(255, 255, 255, 0.776);
 }
 

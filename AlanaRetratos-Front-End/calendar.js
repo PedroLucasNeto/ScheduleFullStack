@@ -15,10 +15,21 @@ function createCalendar(data) {
       agendaWeek: "Week List",
       today: "Today",
     },
+    dayMaxEventRows: true, // for all non-TimeGrid views
+    views: {
+      timeGrid: {
+        dayMaxEventRows: 8, // adjust to 6 only for timeGridWeek/timeGridDay
+      },
+    },
     headerToolbar: {
       start: "title", // will normally be on the left. if RTL, will be on the right
-      center: "dayGridMonth listWeek listMonth listYear",
+      center: "",
       end: "today prev,next", // will normally be on the right. if RTL, will be on the left
+    },
+    footerToolbar: {
+      start: "", // will normally be on the left. if RTL, will be on the right
+      center: "dayGridMonth listWeek listMonth listYear",
+      end: "", // will normally be on the right. if RTL, will be on the left
     },
     eventColor: "var(--purple)",
     eventDidMount: function (info) {

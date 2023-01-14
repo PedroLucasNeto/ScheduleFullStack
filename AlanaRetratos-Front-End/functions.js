@@ -27,7 +27,7 @@ const createAppointment = function () {
     saveInDb(jsonFormat);
     closeModal();
     setTimeout(() => {
-      window.location.reload();
+      refreshPage();
     }, 2000);
   }
 };
@@ -79,7 +79,7 @@ function createAppointmentsList() {
     const time = new Date(item.date).toLocaleTimeString();
     element.setAttribute("id", item.id);
     element.innerHTML = `
-        <td>${item.id}</td>
+        <td id="${item.id}">${item.id}</td>
         <td>${item.clientName}</td>
         <td>${item.description}</td>
         <td>${date}</td>
@@ -148,7 +148,7 @@ const changeAppointment = function () {
     editAppointment(newObj);
     closeModal();
     setTimeout(() => {
-      window.location.reload();
+      refreshPage();
     }, 2000);
   } else {
     Toastify({
@@ -166,30 +166,32 @@ const removeAppointment = function (appointmentId) {
   const confirmationModal = document.getElementById("confirmation-modal");
   const yesButton = document.getElementById("yes-button");
   const noButton = document.getElementById("no-button");
-  const tableRow = document.getElementById(appointmentId);
 
   const cancelAction = function () {
     confirmationModal.classList.add("hidden");
   };
 
   const deleteRow = function () {
+    const tableRow = document.getElementById(appointmentId);
+
     deleteAppointment(appointmentId);
-    tableRow.remove();
+
     confirmationModal.classList.add("hidden");
-    appointmentList.map(function (item) {
-      if (item.id === appointmentId) {
-        appointmentList.pop(item);
-      }
-    });
-    createAppointmentsList();
     console.log(appointmentList);
+    for (let i = 0; i < appointmentList.length; i++) {
+      var obj = appointmentList[i];
+      if (obj.id === appointmentId) {
+        appointmentList.splice(i, 1);
+      }
+    }
+    setTimeout(() => {
+      createAppointmentsList();
+    }, 1000);
   };
 
-  if (tableRow) {
-    confirmationModal.classList.remove("hidden");
-    yesButton.addEventListener("click", deleteRow);
-    noButton.addEventListener("click", cancelAction);
-  }
+  confirmationModal.classList.remove("hidden");
+  yesButton.addEventListener("click", deleteRow);
+  noButton.addEventListener("click", cancelAction);
 };
 
 //END
