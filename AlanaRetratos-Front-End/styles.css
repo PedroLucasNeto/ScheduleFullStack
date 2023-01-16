@@ -323,14 +323,16 @@ select {
 
 /* Table styles */
 .styled-table {
-  border-collapse: collapse;
-  margin: 25px 0;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   font-size: 0.9em;
   font-family: sans-serif;
-  min-width: 400px;
   box-shadow: 0 0 50px rgba(0, 0, 0, 0.3);
-  position: fixed;
-  top: 250px;
+
+  border-collapse: collapse;
 }
 
 .styled-table thead tr {

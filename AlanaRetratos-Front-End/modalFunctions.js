@@ -32,7 +32,7 @@ document.addEventListener("keydown", function (e) {
     closeModal();
   }
 });
-
+// Identifies wheter
 const createOrEdit = function () {
   if (submitButton.id === "create") {
     return createAppointment();
