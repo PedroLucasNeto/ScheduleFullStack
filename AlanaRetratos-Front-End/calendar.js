@@ -23,12 +23,12 @@ function createCalendar(data) {
     },
     headerToolbar: {
       start: "title", // will normally be on the left. if RTL, will be on the right
-      center: "dayGridMonth listWeek listMonth listYear",
+      center: "",
       end: "today prev,next", // will normally be on the right. if RTL, will be on the left
     },
     footerToolbar: {
       start: "", // will normally be on the left. if RTL, will be on the right
-      center: "",
+      center: "dayGridMonth listWeek listMonth listYear",
       end: "", // will normally be on the right. if RTL, will be on the left
     },
     eventColor: "var(--purple)",

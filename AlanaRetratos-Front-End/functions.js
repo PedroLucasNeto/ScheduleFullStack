@@ -1,5 +1,8 @@
-//ADD APPOINTMENT THROUGH FORM
+const appointmentList = [];
+const calendarAppointmentList = [];
 const form = document.querySelector("form");
+
+//ADD APPOINTMENT THROUGH FORM
 const createAppointment = function () {
   const fd = new FormData(form);
   const obj = Object.fromEntries(fd);
@@ -32,9 +35,6 @@ const createAppointment = function () {
   }
 };
 //END
-
-const appointmentList = [];
-const calendarAppointmentList = [];
 
 //POPULATE LIST AND CALENDAR
 const populate = async function (getAppointments) {
@@ -201,20 +201,26 @@ const calendar = document.getElementById("calendar");
 const table = document.getElementById("appointment-table");
 const selectCalendarIcon = document.getElementById("hide-list");
 const selectListIcon = document.getElementById("hide-calendar");
+const calendarBox = document.getElementById("calendar-box");
+const ul = document.getElementById("color-list");
 
 const listIcon = function () {
   createAppointmentsList();
   table.classList.remove("hidden"),
     selectCalendarIcon.classList.add("disabled"),
     selectListIcon.classList.remove("disabled"),
-    (calendar.innerHTML = "");
+    (calendar.innerHTML = ""),
+    calendarBox.classList.add("z-index"),
+    console.log(calendarBox);
 };
 
 const calendarIcon = function () {
-  createCalendar(calendarAppointmentList),
+  calendarBox.classList.remove("z-index"),
+    createCalendar(calendarAppointmentList),
     table.classList.add("hidden"),
     selectListIcon.classList.add("disabled"),
-    selectCalendarIcon.classList.remove("disabled");
+    selectCalendarIcon.classList.remove("disabled"),
+    ul.classList.remove("hidden");
 };
 //  END
 

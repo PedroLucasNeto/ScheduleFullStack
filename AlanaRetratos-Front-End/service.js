@@ -51,12 +51,14 @@ const getAppointments = async function () {
 };
 //END
 
+// Get only one appointment using it's ID
 const getAppointmentById = async function (objId) {
   const appointment = await fetch(`${url}/appointment/id/${objId}`, {
     method: "get",
   });
   return appointment;
 };
+//END
 
 //Edit the appointment with the matching ID
 const editAppointment = function (appointment) {
@@ -80,3 +82,4 @@ const editAppointment = function (appointment) {
       console.error(error);
     });
 };
+//END
