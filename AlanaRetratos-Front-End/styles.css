@@ -269,6 +269,9 @@ select {
 .hidden {
   display: none;
 }
+.z-index{
+  display: none;
+}
 
 /* Modal End */
 
@@ -394,8 +397,7 @@ select {
 }
 /* END */
 
-/* PhotoShoot colors */
-
+/* Calendar Container */
 .calendar-box{
   display: flex;
   flex-direction: row;
@@ -405,30 +407,35 @@ select {
   top: 80px;
   width: 80%;
   height: 90%;
-  background-color: rgba(255, 255, 255, 0.5);
-  
 }
-
-
 .calendar-div {
   width: 80%;
   padding: 20px 50px;
+  background-color: rgba(255, 255, 255, 0.5);
 }
+/* End */
+/* PhotoShoot colors */
 .ps-colors{
   display: flex;
   flex-direction: column;
 }
 .ps-colors ul{
+  display: flex;
+  flex-direction: column;
+  
   width: 200px;
+  padding: 30px;
+
   position: relative;
   top: 30%;
+
+  background-color: rgba(255, 255, 255, 0.7);
 }
 
 .ps-colors li{
   font-weight: 800;
-  margin-top:20px ;
+  margin-top:20px;
+  padding: 0px 40px;
 }
+/* End */
 
-.z-index{
-  display: none;
-}
