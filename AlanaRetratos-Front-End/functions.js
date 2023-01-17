@@ -200,27 +200,22 @@ const removeAppointment = function (appointmentId) {
 const calendar = document.getElementById("calendar");
 const table = document.getElementById("appointment-table");
 const selectCalendarIcon = document.getElementById("hide-list");
-const selectListIcon = document.getElementById("hide-calendar");
+const gearIcon = document.getElementById("hide-calendar");
 const calendarBox = document.getElementById("calendar-box");
-const ul = document.getElementById("color-list");
 
 const listIcon = function () {
   createAppointmentsList();
   table.classList.remove("hidden"),
     selectCalendarIcon.classList.add("disabled"),
-    selectListIcon.classList.remove("disabled"),
-    (calendar.innerHTML = ""),
-    calendarBox.classList.add("z-index"),
-    console.log(calendarBox);
+    gearIcon.classList.remove("disabled"),
+    (calendar.innerHTML = "");
 };
 
 const calendarIcon = function () {
-  calendarBox.classList.remove("z-index"),
-    createCalendar(calendarAppointmentList),
+  createCalendar(calendarAppointmentList),
     table.classList.add("hidden"),
-    selectListIcon.classList.add("disabled"),
     selectCalendarIcon.classList.remove("disabled"),
-    ul.classList.remove("hidden");
+    gearIcon.classList.add("disabled");
 };
 //  END
 
@@ -253,3 +248,17 @@ const formValid = function () {
 form.addEventListener("submit", function (event) {
   event.preventDefault();
 });
+
+// MODAL For colors info
+const divUl = document.getElementById("modal-color");
+const buttonColors = document.getElementById("colors");
+
+const modalColors = function () {
+  if (divUl.classList.contains("hidden")) {
+    divUl.classList.remove("hidden");
+    buttonColors.classList.add("disabled");
+  } else {
+    divUl.classList.add("hidden");
+    buttonColors.classList.remove("disabled");
+  }
+};

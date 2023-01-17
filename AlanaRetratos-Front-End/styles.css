@@ -97,12 +97,10 @@ li {
   display: flex;
   box-sizing: border-box;
   align-items: center;
-  justify-content: space-between;
+  justify-content:center;
 
-  padding: 30px 10px;
-  position: absolute;
-  top: 100px;
-  width: 80%;
+  padding: 20px 0px;
+
 }
 
 .header-button > a {
@@ -111,13 +109,8 @@ li {
 }
 
 .main-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  /* justify-content: space-around; */
-  
-  width: 90%;
-  height: 90%;
+  width: 100%;
+  height: 100%;
 
 }
 
@@ -269,9 +262,6 @@ select {
 .hidden {
   display: none;
 }
-.z-index{
-  display: none;
-}
 
 /* Modal End */
 
@@ -324,8 +314,11 @@ select {
 }
 /* END */
 
+
 /* Table styles */
 .styled-table {
+
+  width: 90%;
 
   position: absolute;
   top: 50%;
@@ -398,44 +391,27 @@ select {
 /* END */
 
 /* Calendar Container */
-.calendar-box{
-  display: flex;
-  flex-direction: row;
-  gap: 30px;
-
-  position: relative;
-  top: 80px;
-  width: 80%;
-  height: 90%;
-}
 .calendar-div {
-  width: 80%;
-  padding: 20px 50px;
-  background-color: rgba(255, 255, 255, 0.5);
+  width: 100%;
+  padding: 20px 60px;
+  background-color: rgba(255, 255, 255, 0.528);
 }
 /* End */
 /* PhotoShoot colors */
 .ps-colors{
-  display: flex;
-  flex-direction: column;
-}
-.ps-colors ul{
-  display: flex;
-  flex-direction: column;
-  
+  justify-content: center;
+
   width: 200px;
-  padding: 30px;
+  height: 200px;
 
-  position: relative;
-  top: 30%;
-
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  font-weight: 900;
 }
 
-.ps-colors li{
-  font-weight: 800;
-  margin-top:20px;
-  padding: 0px 40px;
+.ps-colors h2{
+  margin-left: 20px;
 }
+
 /* End */
 

@@ -63,21 +63,15 @@
           <button id="hide-list" onclick="listIcon()" class="btn">
             <i class="fa-solid fa-gear"></i>
           </button>
+          <button id="colors" onclick="modalColors()" class="btn">
+            <i class="fa-solid fa-palette"></i>
+          </button>
           <button id="btn-refresh" class="btn">
             <i class="fa-solid fa-rotate-right"></i>
           </button>
         </div>
-        <ul class="nav-list">
-          <li id="today-info">
-            Today's Photo Shoots: <span id="todays-ps">0</span>
-          </li>
-          <li id="month-info">
-            Booked over the month: <span id="booked">0</span>
-          </li>
-          <li id="finished">Finished: <span id="finished"></span> 0</li>
-          <li id="goal">Monthly Goal: <span id="monthly-goal"></span>10</li>
-        </ul>
       </div>
+      <div id="calendar" class="calendar-div"></div>
       <table id="appointment-table" class="styled-table hidden">
         <thead class="thead">
           <tr>
@@ -94,41 +88,6 @@
         </thead>
         <tbody id="appointments"></tbody>
       </table>
-      <div id="calendar-box" class="calendar-box">
-        <div id="ps-colors" class="ps-colors">
-          <ul id="color-list">
-            <li>
-              <i
-                class="fa-solid fa-palette"
-                style="color: var(--lightPurple)"
-              ></i>
-              FEMININE
-            </li>
-            <li>
-              <i class="fa-solid fa-palette" style="color: var(--fashion)"></i>
-
-              FASHION
-            </li>
-            <li>
-              <i class="fa-solid fa-palette" style="color: var(--mom)"></i>
-              MOM
-            </li>
-            <li>
-              <i class="fa-solid fa-palette" style="color: var(--career)"></i>
-              CAREER
-            </li>
-            <li>
-              <i class="fa-solid fa-palette" style="color: var(--event)"></i>
-              EVENT
-            </li>
-            <li>
-              <i class="fa-solid fa-palette" style="color: var(--debutant)"></i>
-              DEBUTANT
-            </li>
-          </ul>
-        </div>
-        <div id="calendar" class="calendar-div"></div>
-      </div>
     </div>
     <!-- MODAL SO WE CAN ADD A NEW APPOINTMENT ON THE CALENDAR -->
     <div class="overlay hidden"></div>
@@ -194,8 +153,42 @@
         <button id="no-button" class="btn">No</button>
       </div>
     </div>
+    <!-- END -->
+    <!-- MODAL TO SEE PHOTO SHOOTS COLORS -->
+    <div id="modal-color" class="modal ps-colors hidden doodle">
+      <h2>Colors Legend</h2>
+      <ul id="color-list">
+        <li>
+          <i class="fa-solid fa-palette" style="color: var(--lightPurple)"></i>
+          FEMININE
+        </li>
+        <li>
+          <i class="fa-solid fa-palette" style="color: var(--fashion)"></i>
+          FASHION
+        </li>
+        <li>
+          <i class="fa-solid fa-palette" style="color: var(--mom)"></i>
+          MOM
+        </li>
+        <li>
+          <i class="fa-solid fa-palette" style="color: var(--career)"></i>
+          CAREER
+        </li>
+        <li>
+          <i class="fa-solid fa-palette" style="color: var(--event)"></i>
+          EVENT
+        </li>
+        <li>
+          <i class="fa-solid fa-palette" style="color: var(--debutant)"></i>
+          DEBUTANT
+        </li>
+      </ul>
+    </div>
+
+    <!-- END -->
   </body>
   <!-- END -->
+
   <script src="/functions.js"></script>
   <script src="/modalFunctions.js"></script>
 </html>
