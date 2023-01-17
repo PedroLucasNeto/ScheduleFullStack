@@ -37,9 +37,7 @@ public class Appointment {
 	@Column
 	private PhotoShootPricing photoShootPricing;
 	
-	@Column
-	private PhotoShootStatus photoShootStatus;
-	
+//	@Column
+//	private PhotoShootStatus photoShootStatus;
+//	
 }
-
-//Agendado, produzido, entregue, finalizado;

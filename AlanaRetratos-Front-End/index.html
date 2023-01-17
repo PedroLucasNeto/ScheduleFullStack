@@ -11,10 +11,6 @@
     ></script>
     <script src="service.js"></script>
     <link rel="shortcut icon" href="assets/img/fav.png" />
-    <!-- <link
-      href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
-      rel="stylesheet"
-    /> -->
     <script
       type="text/javascript"
       src="https://cdn.jsdelivr.net/npm/toastify-js"
@@ -100,7 +96,7 @@
           <i class="fa-regular fa-circle-xmark"></i>
         </button>
       </div>
-      <form class="appointment-form">
+      <form class="appointment-form" autocomplete="off">
         <label for="clientName">Client's Name:</label>
         <input
           type="text"
@@ -156,39 +152,36 @@
     <!-- END -->
     <!-- MODAL TO SEE PHOTO SHOOTS COLORS -->
     <div id="modal-color" class="modal ps-colors hidden doodle">
-      <h2>Colors Legend</h2>
       <ul id="color-list">
         <li>
-          <i class="fa-solid fa-palette" style="color: var(--lightPurple)"></i>
-          FEMININE
+          <i class="fa-solid fa-square" style="color: var(--lightPurple)"></i>
+          Feminine
         </li>
         <li>
-          <i class="fa-solid fa-palette" style="color: var(--fashion)"></i>
-          FASHION
+          <i class="fa-solid fa-square" style="color: var(--fashion)"></i>
+          Fashion
         </li>
         <li>
-          <i class="fa-solid fa-palette" style="color: var(--mom)"></i>
-          MOM
+          <i class="fa-solid fa-square" style="color: var(--mom)"></i>
+          Mom
         </li>
         <li>
-          <i class="fa-solid fa-palette" style="color: var(--career)"></i>
-          CAREER
+          <i class="fa-solid fa-square" style="color: var(--career)"></i>
+          Career
         </li>
         <li>
-          <i class="fa-solid fa-palette" style="color: var(--event)"></i>
-          EVENT
+          <i class="fa-solid fa-square" style="color: var(--event)"></i>
+          Event
         </li>
         <li>
-          <i class="fa-solid fa-palette" style="color: var(--debutant)"></i>
-          DEBUTANT
+          <i class="fa-solid fa-square" style="color: var(--debutant)"></i>
+          Debutant
         </li>
       </ul>
     </div>
-
     <!-- END -->
   </body>
   <!-- END -->
-
   <script src="/functions.js"></script>
   <script src="/modalFunctions.js"></script>
 </html>

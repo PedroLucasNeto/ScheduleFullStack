@@ -35,7 +35,7 @@ body {
 }
 
 textarea {
-  height: 100px;
+  height: 80px;
   margin-bottom: 10px;
 }
 
@@ -54,7 +54,7 @@ li {
 /* General Tags End */
 
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 1px;
   color: var(--grey);
 }
 ::-webkit-scrollbar-thumb {
@@ -399,8 +399,6 @@ select {
 /* End */
 /* PhotoShoot colors */
 .ps-colors{
-  justify-content: center;
-
   width: 200px;
   height: 200px;
 
@@ -409,8 +407,11 @@ select {
   font-weight: 900;
 }
 
-.ps-colors h2{
-  margin-left: 20px;
+.ps-colors ul{
+  display: flex;
+  flex-direction: column;
+
+  gap: 10px;
 }
 
 /* End */

@@ -4,8 +4,7 @@ const overlay = document.querySelector(".overlay");
 
 const closeModalBtn = document.querySelector(".btn-close");
 
-// open modal function
-
+// Opens the modal to submit or change data
 const openModal = function (id) {
   if (id === "create") {
     submitButton.id = "create";
@@ -16,17 +15,18 @@ const openModal = function (id) {
   modal.classList.remove("hidden");
   overlay.classList.remove("hidden");
 };
+
 // close modal function
 const closeModal = function () {
   modal.classList.add("hidden");
   overlay.classList.add("hidden");
 };
 
-// close the modal when the close button and overlay is clicked
+// close the modal when the close button or screen is clicked
 closeModalBtn.addEventListener("click", closeModal);
 overlay.addEventListener("click", closeModal);
 
-// close modal when the Esc key is pressed
+// close modal when hitting Esc key
 document.addEventListener("keydown", function (e) {
   if (e.key === "Escape" && !modal.classList.contains("hidden")) {
     closeModal();

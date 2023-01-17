@@ -97,6 +97,7 @@ function createAppointmentsList() {
 
 //END
 
+//Fill in the modal with the ID of the line you're clicking;
 const fillModal = async function (objId) {
   openModal("0");
   const appointmentFromFetch = await getAppointmentById(objId);
@@ -113,13 +114,21 @@ const fillModal = async function (objId) {
   formId.value = objId;
   clientName.value = appointment.clientName;
   formDescription.value = appointment.description;
-  formDate.value =
-    date.getFullYear() + "-" + date.getMonth() + 1 + "-" + date.getDate();
-  formTime.value = date.getHours() + ":" + date.getMinutes();
+  if (date.getMinutes() < 10) {
+    formDate.value =
+      date.getFullYear() + "-" + date.getMonth() + 1 + "-" + date.getDate();
+    formTime.value = date.getHours() + ":" + 0 + date.getMinutes();
+  } else {
+    formDate.value =
+      date.getFullYear() + "-" + date.getMonth() + 1 + "-" + date.getDate();
+    formTime.value = date.getHours() + ":" + date.getMinutes();
+  }
   formPricing.value = appointment.photoShootPricing;
   formType.value = appointment.photoShootType;
 };
+//END
 
+//Edit the appointment data on bd
 const changeAppointment = function () {
   const formId = document.getElementById("number");
   const fd = new FormData(form);
@@ -160,6 +169,7 @@ const changeAppointment = function () {
     }).showToast();
   }
 };
+//END
 
 // Remove appointment function using ID
 const removeAppointment = function (appointmentId) {
@@ -227,6 +237,7 @@ const refreshPage = function () {
 refreshButton.addEventListener("click", refreshPage);
 //END
 
+// Check if the form content is filled
 const formValid = function () {
   const clientName = document.getElementById("clientName");
   const formDate = document.getElementById("date");
@@ -248,6 +259,7 @@ const formValid = function () {
 form.addEventListener("submit", function (event) {
   event.preventDefault();
 });
+//END
 
 // MODAL For colors info
 const divUl = document.getElementById("modal-color");
