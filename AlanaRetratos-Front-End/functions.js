@@ -244,6 +244,7 @@ const formValid = function () {
   const formTime = document.getElementById("time");
   const formPricing = document.getElementById("photoShootPricing");
   const formType = document.getElementById("photoShootType");
+
   if (
     clientName.value === "" ||
     formDate.value === "" ||
