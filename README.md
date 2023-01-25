@@ -8,3 +8,9 @@ This may not be the last version of this project and definitely isn’t the clea
  
 Full Calendar Library link:
 https://fullcalendar.io
+
+
+## See the app running on LinkedIn
+
+Link to LinkedIn Post: 
+https://www.linkedin.com/feed/update/urn:li:activity:7022189291338412033/
